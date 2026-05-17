@@ -1,0 +1,28 @@
+/*msm8953-mtp.dts */
+&soc {
+	i2c@78b6000 { /* BLSP1 QUP3 */
+		led_aw2013: aw2013@45 { /*blink */
+			compatible = "awinic,aw2013-mi8953";
+			reg = <0x45>;
+			vdd-supply = <&pm8953_l10>;
+			vcc-supply = <&pm8953_l5>;
+
+			AW2013_LED(white, 0)
+		};
+	};
+};
+
+&i2c_2 { /* BLSP1 QUP2 */
+	/delete-node/ adv7533@39;
+};
+
+&spi_5 {
+	status = "ok";
+	    spi_ir@1 {
+	        compatible = "ifrared,spi-msm-ir-slave";
+	        reg = <1>; /* Chip select 0 */
+	        spi-max-frequency = <50000000>;
+	        spi-cpol;
+	        status = "ok";
+	    };
+};

@@ -1,0 +1,1 @@
+obj-$(CONFIG_INPUT_QTI_HAPTICS_MI8953)		+= qti-haptics-mi8953.o
